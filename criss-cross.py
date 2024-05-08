@@ -1,10 +1,8 @@
 board = list(range(1,10))
-#print(board)
 def draw_board(board):
     print("-"*13)
     for i in range(3):
         print("|", board[i*3], "|",board[1+i*3], "|", board[2+i*3])
-        #print()
         print("-"*13)
 
 def take_input(token):
@@ -23,25 +21,7 @@ def take_input(token):
                 print("Эта клеточка уже занята")
         else:
             print('Некорректный ввод. Введите число от 1-9')
-        
-    '''
-    valid = False
-    while not valid:
-        answer = input(f"Куда поставим: {token}?\n")
-        try:
-            answer = int(answer)
-        except:
-            print("Некорректный ввод. Вы уверены, что ввели число?")
-            continue
-        if answer >= 1 and answer <= 9:
-            if (str(board[answer-1]) not in 'XO'):
-                board[answer-1] = token
-                valid = True
-            else:
-                print("Эта клеточка уже занята")
-        else:
-            print('Некорректный ввод. Введите число от 1-9')
-        '''
+
             
 def check_win(board):
     win_code = ((0,1,2),
@@ -60,7 +40,6 @@ def check_win(board):
 out = False
 count = 0
 while not out:
-    print(count)
     draw_board(board)
     if count % 2 == 0:
         take_input("X")
@@ -72,7 +51,6 @@ while not out:
         if examination:
             print(f"{examination} выиграл!")
             out = True
-            #break
     if count == 9:
         print("Ничья")
         out = True
